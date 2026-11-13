@@ -1,0 +1,273 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bad Script', cursive;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: black;
+    cursor: url("../public/angelStick-cursor.png") 8 4, auto;
+    /* background-image: url("OIP.webp");
+    background-size: cover; */
+    flex-direction: column;
+}
+
+.Eng {
+    display: flex;
+    font-weight: 45vw;
+    font-size: 10rem;
+    font-style: italic;
+    letter-spacing: 6px;
+    text-transform: capitalize;
+
+}
+
+.Eng span {
+    animation: animate 3s linear infinite;
+    animation-delay: calc(0.15s * var(--i));
+}
+.Chi{
+    display: flex;
+    font-weight: 45vw;
+    font-size: 10rem;
+    font-style: italic;
+    letter-spacing: 6px;
+    text-transform: capitalize;
+}
+.Chi span {
+    animation: animate 3s linear infinite;
+    animation-delay: calc(0.15s * var(--i));
+}
+canvas{
+    display: flex;
+}
+#fx{
+    position:fixed;
+    width: 100vw;
+    height:100vh;
+    z-index: 114514;
+    pointer-events: none;
+    inset:0;
+}
+
+.glass{
+    font-size: 100px;
+    font-weight: bold;
+    background: linear-gradient(to right,rgb(206, 244, 68),blue,red);
+    /* -webkit-background-clip: text; */
+    color:transparent;
+}
+
+
+
+.blessing{
+    position:relative;
+    width:min(1500px, 96vw);
+    height:fit-content;
+    padding-top:200px;
+    padding-bottom: 100px;
+    margin:40px 0;
+    z-index: 0;
+    background:rgba(255,255,255,0.5);
+    backdrop-filter:blur(2px);
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    border-radius:20px;
+    box-shadow:0 25px 45px rgba(0,0,0,0.1);
+    transform-style:preserve-3d;
+
+    z-index: 0;
+
+}
+.elements.word{
+    position:absolute;
+    top:10px;
+    left: 30px;
+    width:fit-content;
+    height:fit-content;
+    margin:0;
+    background:rgba(255,255,255,0.1);
+    transform:translateZ(50px);
+    border-radius:10px;
+    backdrop-filter:blur(5px);
+    font-size:2rem;
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    box-shadow:0 25px 45px rgba(0,0,0,0.1);
+    z-index:10;
+}
+.elements.word span{
+    display:inline-block;
+    animation:wordGlow 3s linear infinite;
+    animation-delay:calc(0.15s * var(--i));
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    place-items: center;
+    position: relative;
+    width: 100%;
+    gap:100px;
+    z-index: 10;
+}
+.box{
+    position:relative;
+    border-radius: 20px;
+    transform-style: preserve-3d;
+    pointer-events:auto;
+}
+.box .card{
+    position:relative;
+    background:rgba(255,255,255,0.5);
+    width:300px;
+    min-height:400px;
+    backdrop-filter:blur(5px);
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    border-radius:20px;
+    box-shadow:0 25px 45px rgba(0,0,0,0.1);
+    transform-style:preserve-3d;
+    z-index: 10;
+}
+.elements{
+    position:absolute;
+    top:50px;
+    left: -30px;
+    width:100px;
+    height:100px;
+    background:rgba(255,255,255,0.1);
+    transform:translateZ(50px);
+    border-radius:10px;
+    backdrop-filter:blur(5px);
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    box-shadow:0 25px 45px rgba(0,0,0,0.1);
+}
+.elements.bg{
+    content:'';
+    position:absolute;
+    inset:0;
+    top:60px;
+    background:url("../public/Leftquote.png");
+    background-size:60px;
+    background-repeat:no-repeat;
+    background-position:center;
+    bottom:50px;
+    opacity:0.1;
+    transition:0.5s;
+}
+.box:hover .elements.bg{
+    opacity:1;
+}
+.elements.imgBx{
+    position: absolute;
+    width:calc(100%-20px);
+    border-radius:8px;
+    top:-60px;
+    /* left:initial; */
+    right:-160px;
+    width:120px;
+    height:120px;
+    padding:10px;
+    transform:translateZ(50px);
+
+}
+.elements.imgBx img{
+    display:block;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+.elements.name{
+    top:175px;
+    left: initial;
+    right:0;
+    width:auto;
+    height: auto;
+    padding:0 10px;
+    margin:4px;
+    max-width: calc(100% - 20px);
+    text-align: left;
+    transform: translateZ(100px);
+    background:transparent ;
+    word-break: break-all;
+
+}
+
+@keyframes animate {
+    0% {
+        color: #fff;
+        filter: blur(2px) hue-rotate(0deg);
+        text-shadow: 0 0 10px #00b3ff,
+            0 0 20px #00b3ff,
+            0 0 40px #00b3ff,
+            0 0 80px #00b3ff,
+            0 0 120px #00b3ff,
+            0 0 200px #00b3ff,
+            0 0 300px #00b3ff,
+            0 0 400px #00b3ff
+    }
+
+    30%,
+    70% {
+        color: #fff;
+        filter: blur(2px) hue-rotate(360deg);
+        text-shadow: 0 0 10px #00b3ff,
+            0 0 20px #00b3ff,
+            0 0 40px #00b3ff,
+            0 0 80px #00b3ff,
+            0 0 120px #00b3ff,
+            0 0 200px #00b3ff,
+            0 0 300px #00b3ff,
+            0 0 400px #00b3ff
+    }
+
+    100% {
+        color: transparent;
+        box-shadow: none;
+        filter: blur(2px) hue-rotate(0deg);
+    }
+}
+@keyframes wordGlow {
+    0% {
+        color: #fff;
+        filter: hue-rotate(0deg);
+        text-shadow: 0 0 10px #00b3ff,
+            0 0 20px #00b3ff,
+            0 0 40px #00b3ff,
+            0 0 80px #00b3ff,
+            0 0 120px #00b3ff,
+            0 0 200px #00b3ff,
+            0 0 300px #00b3ff,
+            0 0 400px #00b3ff
+    }
+
+    30%,
+    70% {
+        color: #fff;
+        filter:hue-rotate(360deg);
+        text-shadow: 0 0 10px #00b3ff,
+            0 0 20px #00b3ff,
+            0 0 40px #00b3ff,
+            0 0 80px #00b3ff,
+            0 0 120px #00b3ff,
+            0 0 200px #00b3ff,
+            0 0 300px #00b3ff,
+            0 0 400px #00b3ff
+    }
+
+    100% {
+        color: transparent;
+        box-shadow: none;
+        filter:hue-rotate(0deg);
+    }
+}
