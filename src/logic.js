@@ -112,7 +112,7 @@ let rotation = 0,
 for (let i = 0; i < total; i++) {
   const card = document.createElement("div");
   card.className = "orbit-card";
-  card.innerHTML = `<img src="画廊${i + 1}.webp" alt="Random Photo ${i + 1}"><span>MEMORY / 00${i + 1}</span>`;
+  card.innerHTML = `<img src="public/画廊${i + 1}.jpg" alt="Random Photo ${i + 1}"><span>MEMORY / 00${i + 1}</span>`;
   card.style.transform = `rotateY(${i * (360 / total)}deg) translateZ(${radius}px)`;
   $("#ring").append(card);
 }

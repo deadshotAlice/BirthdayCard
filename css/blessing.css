@@ -48,9 +48,6 @@ body {
     animation: animate 3s linear infinite;
     animation-delay: calc(0.15s * var(--i));
 }
-canvas{
-    display: flex;
-}
 #fx{
     position:fixed;
     width: 100vw;
