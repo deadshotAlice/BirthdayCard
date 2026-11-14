@@ -329,3 +329,83 @@ body {
         background-color: plum;
     }
 }
+@media (max-width: 768px) {
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .Eng {
+        font-size: clamp(1.8rem, 9vw, 4.5rem);
+        letter-spacing: 1px;
+        margin-top: 12vh;
+    }
+    .Chi {
+        font-size: clamp(2.2rem, 13vw, 5.5rem);
+        letter-spacing: 1px;
+    }
+    .blessing {
+        padding-top: 90px;
+        padding-bottom: 50px;
+        margin: 40px 0;
+    }
+    .elements.word {
+        top: 10px;
+        left: 12px;
+        font-size: 1.4rem;
+    }
+    .container1 {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        padding: 0 10px;
+    }
+    .box .card {
+        width: min(300px, 80vw);
+        min-height: 340px;
+    }
+    .elements.imgBx {
+        top: -40px;
+        right: -10px;
+    }
+    .heart {
+        width: min(280px, 86vw);
+        height: 180px;
+    }
+    .heart span {
+        flex: 1;
+        width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .Eng {
+        font-size: clamp(1.5rem, 8.5vw, 3rem);
+        margin-top: 10vh;
+    }
+    .Chi {
+        font-size: clamp(2rem, 12vw, 3.5rem);
+    }
+    .blessing {
+        padding-top: 70px;
+        padding-bottom: 36px;
+        margin: 24px 0;
+        border-radius: 14px;
+    }
+    .elements.word {
+        left: 8px;
+        font-size: 1.15rem;
+    }
+    .container1 {
+        gap: 44px;
+        padding: 0 4px;
+    }
+    .box .card {
+        width: min(280px, 82vw);
+        min-height: 320px;
+    }
+    .elements.name {
+        top: 150px;
+    }
+    .heart {
+        height: 150px;
+    }
+}

@@ -5,6 +5,7 @@
 }
 
 .orbit {
+  --orbit-radius: 360px;
   height: 430px;
   position: relative;
   perspective: 1100px;
@@ -89,4 +90,81 @@
 }
 .galleryCount{
   font-size: 3rem;
+}
+@media (max-width: 768px) {
+  .orbit {
+    --orbit-radius: 230px;
+    height: 340px;
+    margin-top: 40px;
+    perspective: 900px;
+  }
+  .ring {
+    width: 200px;
+    height: 130px;
+    margin: -65px 0 0 -100px;
+    transform-origin: 100px 65px;
+    top: 22%;
+  }
+  .orbit-card {
+    width: 200px;
+    height: 175px;
+  }
+  .orbit-card span {
+    font-size: 10px;
+    left: 8px;
+    bottom: 8px;
+  }
+  .orbit-floor {
+    width: 88vw;
+    height: 80px;
+  }
+  .gallery-controls {
+    gap: 12px;
+    font-size: 18px;
+  }
+  .gallery-controls button {
+    width: 56px;
+    height: 56px;
+  }
+  .gallery-controls button.auto {
+    height: 48px;
+    padding: 0 14px;
+    font-size: 14px;
+  }
+  .galleryCount {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .orbit {
+    --orbit-radius: 170px;
+    height: 300px;
+    margin-top: 30px;
+  }
+  .ring {
+    width: 170px;
+    height: 110px;
+    margin: -55px 0 0 -85px;
+    transform-origin: 85px 55px;
+  }
+  .orbit-card {
+    width: 170px;
+    height: 150px;
+  }
+  .gallery-controls {
+    gap: 8px;
+    font-size: 16px;
+  }
+  .gallery-controls button {
+    width: 48px;
+    height: 48px;
+  }
+  .gallery-controls button.auto {
+    padding: 0 10px;
+    font-size: 12px;
+  }
+  .galleryCount {
+    font-size: 1.25rem;
+  }
 }

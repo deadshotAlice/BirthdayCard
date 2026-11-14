@@ -42,3 +42,9 @@ function animate() {
   renderer.render(scene, camera);
 }
 animate();
+
+addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});

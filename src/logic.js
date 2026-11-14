@@ -110,8 +110,23 @@ document.querySelectorAll(".card2").forEach((el)=>{
 });
 
 
-const radius = 360;
 const total = 8;
+const orbit = $("#orbit");
+const cards = [];
+
+function getRadius() {
+  const radius = parseFloat(
+    getComputedStyle(orbit).getPropertyValue("--orbit-radius")
+  );
+  return Number.isFinite(radius) && radius > 0 ? radius : 360;
+}
+
+function layoutRing() {
+  const radius = getRadius();
+  cards.forEach((card, i) => {
+    card.style.transform = `rotateY(${i * (360 / total)}deg) translateZ(${radius}px)`;
+  });
+}
 
 let rotation = 0,
   galleryIndex = 0,
@@ -121,9 +136,11 @@ for (let i = 0; i < total; i++) {
   const card = document.createElement("div");
   card.className = "orbit-card";
   card.innerHTML = `<img src="public/画廊${i + 1}.jpg" alt="Random Photo ${i + 1}"><span>MEMORY / 00${i + 1}</span>`;
-  card.style.transform = `rotateY(${i * (360 / total)}deg) translateZ(${radius}px)`;
   $("#ring").append(card);
+  cards.push(card);
 }
+layoutRing();
+addEventListener("resize", layoutRing);
 
 function rotate(d) {
   rotation -= d * (360 / total);
