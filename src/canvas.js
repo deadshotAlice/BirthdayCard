@@ -11,20 +11,26 @@ renderer.domElement.style.cssText =
 document.body.appendChild(renderer.domElement);
 document.body.style.margin = 0;
 
-// 生成 5000 个顶点坐标
 const starGeometry = new THREE.BufferGeometry();
-const starCount = 5000;
+const tempColor=new THREE.Color();
+const starCount = 2500;
 const positions = new Float32Array(starCount * 3);
+const colors = new Float32Array(starCount * 3);
+
 
 for (let i = 0; i < starCount * 3; i++) {
 
   positions[i] = (Math.random() - 0.5) * 20; 
+
+  tempColor.setHSL(Math.random()*0.1+0.1,Math.random()*0.5,Math.random()*0.2+0.7);
+  colors[i]=(Math.random() - 0.5) * 20; 
 }
 
 starGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+starGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-
-const starMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.05 });
+const starMaterial = new THREE.PointsMaterial({
+  size: 0.03,vertexColors:true,blending:THREE.AdditiveBlending,transparent:true });
 const starField = new THREE.Points(starGeometry, starMaterial);
 scene.add(starField);
 

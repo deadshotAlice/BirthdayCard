@@ -89,18 +89,26 @@ if(cake) cake.addEventListener('click',()=>{
     cakeContainer.appendChild(flame);});
 document.querySelectorAll(".box").forEach((el)=>{
     VanillaTilt.init(el, {
-        max: 25,
+        max: 15,
         speed: 400,
         glare: true,
     });
 });
 document.querySelectorAll(".elements.word").forEach((el)=>{
     VanillaTilt.init(el, {
-        max: 25,
+        max: 15,
         speed: 400,
         glare: true,
     });
 });
+document.querySelectorAll(".card2").forEach((el)=>{
+    VanillaTilt.init(el, {
+        max: 15,
+        speed: 400,
+        glare: true,
+    });
+});
+
 
 const radius = 360;
 const total = 8;

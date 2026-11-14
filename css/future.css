@@ -1,0 +1,41 @@
+
+.container2{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    place-items: center;
+    position: relative;
+    width: 100%;
+    padding:40px 0;
+    margin:0 auto;
+    gap:100px;
+    z-index: 10;
+}
+.card2{
+    position:relative;
+    background:rgba(255,255,255,0.5);
+    width:300px;
+    min-height:400px;
+    backdrop-filter:blur(5px);
+    border-top:1px solid rgba(255,255,255,0.5);
+    border-left:1px solid rgba(255,255,255,0.5);
+    border-radius:20px;
+    box-shadow:0 25px 45px rgba(0,0,0,0.1);
+    transform-style:preserve-3d;
+    z-index: 10;
+}
+.card2 img{
+    /* position: absolute;
+    width:calc(100%-20px);
+    border-radius:8px;
+    left:initial;
+    width:240px;
+    height:2400px;
+    padding:10px; */
+
+    display:block;
+    margin:auto;
+    width: 95%;
+    height: 100%;
+    object-fit:cover;
+    /* transform:translateZ(50px); */
+}
