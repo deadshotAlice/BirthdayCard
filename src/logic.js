@@ -101,3 +101,55 @@ document.querySelectorAll(".elements.word").forEach((el)=>{
         glare: true,
     });
 });
+
+const radius = 360;
+const total = 8;
+
+let rotation = 0,
+  galleryIndex = 0,
+  autoTimer;
+
+for (let i = 0; i < total; i++) {
+  const card = document.createElement("div");
+  card.className = "orbit-card";
+  card.innerHTML = `<img src="画廊${i + 1}.webp" alt="Random Photo ${i + 1}"><span>MEMORY / 00${i + 1}</span>`;
+  card.style.transform = `rotateY(${i * (360 / total)}deg) translateZ(${radius}px)`;
+  $("#ring").append(card);
+}
+
+function rotate(d) {
+  rotation -= d * (360 / total);
+  galleryIndex = (galleryIndex + d + total) % total;
+  $("#ring").style.transform = `rotateY(${rotation}deg)`;
+  $("#galleryCount").textContent = `0${galleryIndex + 1} / 0${total}`;
+}
+
+$("#prevGallery").onclick = () => rotate(-1);
+$("#nextGallery").onclick = () => rotate(1);
+$("#autoGallery").onclick = () => {
+  if (autoTimer) {
+    clearInterval(autoTimer);
+    autoTimer = null;
+  } else {
+    autoTimer = setInterval(() => {
+      if (!document.hidden) rotate(1);
+    }, 2600);
+  }
+  $("#autoGallery").textContent = autoTimer ? "暂停旋转" : "自动旋转";
+  $("#autoGallery").setAttribute("aria-pressed", !!autoTimer);
+};
+
+let swipeX = 0;
+$("#orbit").addEventListener(
+  "touchstart",
+  (e) => (swipeX = e.touches[0].clientX),
+  { passive: true },
+);
+$("#orbit").addEventListener(
+  "touchend",
+  (e) => {
+    const d = swipeX - e.changedTouches[0].clientX;
+    if (Math.abs(d) > 40) rotate(d > 0 ? 1 : -1);
+  },
+  { passive: true },
+);
