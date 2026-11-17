@@ -197,6 +197,7 @@ body {
     transform: translateZ(100px);
     background:transparent ;
     word-break: break-all;
+    font-size: 1.5rem;
 }
 .heart{
     width:280px;
