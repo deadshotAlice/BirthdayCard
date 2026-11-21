@@ -3,6 +3,9 @@
   overflow: hidden;
   background: radial-gradient(ellipse at center, #25133580, transparent 60%);
 }
+button{
+  cursor:url("../public/angelStick-cursor.png") 8 4, auto;
+}
 
 .orbit {
   --orbit-radius: 360px;
